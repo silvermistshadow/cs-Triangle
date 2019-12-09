@@ -1,5 +1,5 @@
 using System;
-
+using System.Collections.Generic;
 
 public class Triangle 
 {
@@ -36,5 +36,17 @@ public class Triangle
       this.triangleType = "Not a triangle";
     }
   return this.triangleType;
+  }
+}
+
+public class Program 
+{
+  public static void Main()
+  {
+    Console.WriteLine("This program takes three numbers and calculates the type of triangle they would make. \n Please enter three numbers, separated by spaces:");
+    string[] nums = Console.ReadLine().Split(' ');
+    int[] sides = Array.ConvertAll(nums, int.Parse);
+    Triangle inputTriangle = new Triangle(side1: sides[0], side2: sides[1], side3: sides[2]);
+    Console.WriteLine($"The numbers have been run and the result is: {inputTriangle.TriangleType()}");
   }
 }
